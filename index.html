@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EarnBDT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>EarnBDT Login/Register</h1>
+
+  <div class="form">
+    <input id="email" type="email" placeholder="Email"><br>
+    <input id="password" type="password" placeholder="Password"><br>
+    <button onclick="signUp()">Sign Up</button>
+    <button onclick="signIn()">Sign In</button>
+    <p id="message"></p>
+  </div>
+
+  <div class="packages">
+    <h2>Available Packages</h2>
+    <div class="card">Mini Pack — 100 BDT</div>
+    <div class="card">Smart Pack — 200 BDT</div>
+    <div class="card">Pro Pack — 500 BDT</div>
+  </div>
+
+  <div class="withdraw">
+    <h2>Withdraw</h2>
+    <input id="withdrawAmount" type="number" placeholder="Amount (500–25000)">
+    <button onclick="withdraw()">Withdraw</button>
+    <p id="withdrawMsg"></p>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
