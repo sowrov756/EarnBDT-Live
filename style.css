@@ -1,0 +1,32 @@
+body {
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 20px;
+}
+
+.form, .packages, .withdraw {
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.card {
+  background-color: white;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
