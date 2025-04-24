@@ -1,39 +1,45 @@
+// Firebase SDK থেকে প্রয়োজনীয় ফাংশন ইম্পোর্ট
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+// তোমার Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyDemoApiKey123456",
-  authDomain: "earnbdt-demo.firebaseapp.com",
-  projectId: "earnbdt-demo",
-  storageBucket: "earnbdt-demo.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abcdef123456"
+  apiKey: "AIzaSyD6FL0C_yml4Ww01wYyNAFc7auK8_2SGLw",
+  authDomain: "earnbdt-28683.firebaseapp.com",
+  projectId: "earnbdt-28683",
+  storageBucket: "earnbdt-28683.appspot.com",
+  messagingSenderId: "982019729101",
+  appId: "1:982019729101:web:42c50d6e29d6149bac6b84"
 };
 
-const app = firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+// Firebase ইনিশিয়ালাইজ
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
+// Sign Up Function
 function signUp() {
-  const email = document.getElementById('email').value;
-  const pass = document.getElementById('password').value;
-  auth.createUserWithEmailAndPassword(email, pass)
-    .then(() => document.getElementById('message').innerText = "Registered!")
-    .catch(e => document.getElementById('message').innerText = e.message);
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      document.getElementById("message").innerText = "একাউন্ট তৈরি হয়েছে!";
+    })
+    .catch((error) => {
+      document.getElementById("message").innerText = "Error: " + error.message;
+    });
 }
 
+// Sign In Function
 function signIn() {
-  const email = document.getElementById('email').value;
-  const pass = document.getElementById('password').value;
-  auth.signInWithEmailAndPassword(email, pass)
-    .then(() => document.getElementById('message').innerText = "Logged in!")
-    .catch(e => document.getElementById('message').innerText = e.message);
-}
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-function withdraw() {
-  const amount = parseInt(document.getElementById('withdrawAmount').value);
-  const msg = document.getElementById('withdrawMsg');
-  if (amount < 500) {
-    msg.innerText = "Minimum withdraw is 500 BDT.";
-  } else if (amount > 25000) {
-    msg.innerText = "Maximum withdraw limit is 25,000 BDT.";
-  } else {
-    msg.innerText = "Withdraw request submitted!";
-  }
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      document.getElementById("message").innerText = "সফলভাবে লগ ইন হয়েছে!";
+    })
+    .catch((error) => {
+      document.getElementById("message").innerText = "Error: " + error.message;
+    });
 }
